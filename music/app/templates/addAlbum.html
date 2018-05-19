@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+        <form method="POST" action="/addAlbum" enctype="multipart/form-data" style="width:100%;">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Album Title:</label>
+                <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div class="form-group">
+                <label for="artist">Artist:</label>
+                <input type="text" class="form-control" id="artist" name="artist">
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre:</label>
+                <input type="text" class="form-control" id="genre" name="genre">
+            </div>
+            <div class="form-group">
+                <label for="logo">Album Logo:</label>
+                <input type="file" id="logo" name="logo">
+            </div>
+            <button type="submit" class="btn btn-default" name="submit">Submit</button>
+        </form>
+    </div>
+    <div class="col-lg-4"></div>
+</div>
+
+{% endblock %}

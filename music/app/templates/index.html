@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    {% for album in albums %}
+            <div class="col m"></div>
+            <div class="col m3">
+                <div class="card"> 
+                    <div class="card-image">
+                        <img src="/media/{{album.logo}}" height="200px" width="200px">
+                    </div>
+                    <div class="card-content">
+                        <p class="title" style="font-family: Oswald; font-size: 20px;">{{ album.title }}</p>
+                        <p class="artist">{{ album.artist }}</p>
+                        <p class="genre">{{ album.genre }}</p>
+                    </div>
+                    <div class="card-action">
+                        <div class="sharethis-inline-share-buttons"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col m2"></div>
+    {% endfor %}
+</div>
+
+{% endblock %}

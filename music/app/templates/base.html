@@ -1,0 +1,43 @@
+{% load static %}
+<html>
+<head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+            
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="left hide-on-med-and-down">
+                <li>
+                    <a href="/" class="active">Home</a>
+                </li>
+                <li>
+                    <a href="post.php?category=Art_Aficionado">Art Aficionado</a>
+                </li>
+                <li>
+                    <a href="post.php?category=Artist's_Corner">Artist's Corer</a>
+                </li>
+                <li>
+                    <a href="post.php?category=Be_Better">Be Better</a>
+                </li>
+                <li>
+                    <a href="post.php?category=Be_The_Change">Be The Change</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+      {% block content %} {% endblock %}
+
+</body>
+</html>
