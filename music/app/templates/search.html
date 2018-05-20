@@ -1,0 +1,33 @@
+<div id="search">
+    <center>
+        <div style="width:500px;">
+            <table>
+                <tbody>
+                    {% for song in songResults %}
+                    <tr>
+                        <td>
+                            <i>Song</i>
+                        </td>
+                        <td>{{song.title}}</td>
+                    </tr>
+                    {% endfor %} {% for album in albumResults %}
+                    <tr>
+                        <td>
+                            <i>Album</i>
+                        </td>
+                        <td>{{album.title}}</td>
+                        <td>
+                            <a href="/album/{{album.id}}">
+                                Visit
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </center>
+    <br/>
+    <br/>
+</div>

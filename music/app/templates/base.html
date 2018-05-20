@@ -1,5 +1,6 @@
 {% load static %}
 <html>
+
 <head>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
@@ -9,35 +10,119 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-            
+
 </head>
+
 <body>
     <nav>
         <div class="nav-wrapper">
             <a href="#" data-target="mobile-demo" class="sidenav-trigger">
                 <i class="material-icons">menu</i>
             </a>
-            <ul class="left hide-on-med-and-down">
-                <li>
-                    <a href="/" class="active">Home</a>
-                </li>
-                <li>
-                    <a href="post.php?category=Art_Aficionado">Art Aficionado</a>
-                </li>
-                <li>
-                    <a href="post.php?category=Artist's_Corner">Artist's Corer</a>
-                </li>
-                <li>
-                    <a href="post.php?category=Be_Better">Be Better</a>
-                </li>
-                <li>
-                    <a href="post.php?category=Be_The_Change">Be The Change</a>
-                </li>
-            </ul>
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">MusicApp</a>
+
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <form id="searchBar">
+                            <div class="input-field">
+                                <input id="search" type="search" name="search" placeholder="Search" required>
+                            </div>
+                        </form>
+                    </li>
+                    <li>
+                        <a href="/">Albums</a>
+                    </li>
+                    <li>
+                        <a href="/songs">Songs</a>
+                    </li>
+                    <li>
+                        <a href="/addAlbum">Add Album</a>
+                    </li>
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-      {% block content %} {% endblock %}
+    {% block content %} {% endblock %}
+
+
+    <style>
+        /* Animated Button */
+
+        .spot {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .svg-wrapper {
+            margin-top: 0;
+            position: relative;
+            width: 150px;
+            /*make sure to use same height/width as in the html*/
+            height: 40px;
+            display: inline-block;
+            border-radius: 3px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        #shape {
+            stroke-width: 6px;
+            fill: transparent;
+            stroke: #fb3958;
+            stroke-dasharray: 85 400;
+            stroke-dashoffset: -220;
+            transition: 1s all ease;
+        }
+
+        #text {
+            margin-top: -35px;
+            text-align: center;
+        }
+
+        #text a {
+            font-family: 'Kalam', sans-serif;
+            color: #646464;
+            text-decoration: none;
+            font-weight: 100;
+            font-size: 1.1em;
+        }
+
+        .svg-wrapper:hover #shape {
+            stroke-dasharray: 50 0;
+            stroke-width: 3px;
+            stroke-dashoffset: 0;
+            stroke: #fb3958;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $('.modal').modal();
+
+            $("#searchBar").submit(function(event) {
+                event.preventDefault();
+                searchQuery = $('input[name=search]').val();
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/',
+                    success: function() {
+                        alert("Hi");
+                        $('#searchDiv').load("/search?search="+searchQuery);
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
+
 </html>
